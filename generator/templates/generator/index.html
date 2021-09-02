@@ -1,0 +1,47 @@
+{% extends "generator/layout.html" %} {% block body %} {% if password == None %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <select name="length">
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+  </select>
+  Length
+  <br />
+  <input type="checkbox" name="uppercase" />Upper case
+  <br />
+  <input type="checkbox" name="number" />Number
+  <br />
+  <input type="checkbox" name="special" />Special
+  <br />
+  <input class="btn btn-primary" type="submit" value="Generate Password" />
+</form>
+{% else %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <select name="length">
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+  </select>
+  Length
+  <br />
+  <input type="checkbox" name="uppercase" />Upper case
+  <br />
+  <input type="checkbox" name="number" />Number
+  <br />
+  <input type="checkbox" name="special" />Special
+  <br />
+  <input class="btn btn-primary" type="submit" value="Generate Password" />
+</form>
+<h1>Your password is:</h1>
+<h2 class="alert alert-success">{{ password }}</h2>
+{% endif %} {% endblock %}
