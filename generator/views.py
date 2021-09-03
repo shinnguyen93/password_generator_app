@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
 import random
 import string
 
@@ -16,10 +15,10 @@ def index(request):
          alphabet_list.extend(alphabet_list_upper)
 
       if request.POST.get('special'):
-         alphabet_list.extend(list('!@#$%&*?'))
+         alphabet_list.extend(list(string.punctuation))
 
       if request.POST.get('number'):
-         alphabet_list.extend(list('!@#$%&*?'))
+         alphabet_list.extend(list(string.digits))
 
       length = int(request.POST.get('length'))
 
